@@ -1,0 +1,1 @@
+Short python script to generate json output about parking lots of the city of Erfurt.
