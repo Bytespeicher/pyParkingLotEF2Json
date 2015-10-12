@@ -5,6 +5,7 @@ import urllib2
 import json
 import re
 import datetime
+import config
 
 static_data = []
 static_data.append({'latitude': "50.9725714", 'longitude': "11.0338341",
@@ -57,6 +58,6 @@ class ParkingLotEF2Json():
 
 out = ParkingLotEF2Json().getJson()
 
-fo = open("data.json", "wb")
+fo = open(config.OUTPUT_FILE, "wb")
 fo.write(out)
 fo.close()
