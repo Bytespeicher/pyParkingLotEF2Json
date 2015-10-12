@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# coding: iso-8859-1
+# -*- coding: utf-8 -*-
 
 import urllib2
 import json
@@ -7,14 +7,14 @@ import re
 import datetime
 
 static_data = []
-static_data.append({ 'latitude':"50.9725714", 'longitude':"11.0338341" , 'adresse':"Thomasstraﬂe, 99084 Erfurt"})
-static_data.append({ 'latitude':"50.9843184", 'longitude':"11.0311626" , 'adresse':"Wallstraﬂe, 99084 Erfurt"})
-static_data.append({ 'latitude':"50.97828", 'longitude':"11.02073" , 'adresse':"Bechtheimer Straﬂe 1, 99084 Erfurt"})
+static_data.append({ 'latitude':"50.9725714", 'longitude':"11.0338341" , 'adresse':"Thomasstra√üe, 99084 Erfurt"})
+static_data.append({ 'latitude':"50.9843184", 'longitude':"11.0311626" , 'adresse':"Wallstra√üe, 99084 Erfurt"})
+static_data.append({ 'latitude':"50.97828", 'longitude':"11.02073" , 'adresse':"Bechtheimer Stra√üe 1, 99084 Erfurt"})
 static_data.append({ 'latitude':"50.973088", 'longitude':"11.037674" , 'adresse':"Willy-Brandt-Platz 2, 99084 Erfurt"})
 static_data.append({ 'latitude':"50.9779121", 'longitude':"11.0370504" , 'adresse':"Fleischgasse 2, 99084 Erfurt"})
 static_data.append({ 'latitude':"50.9734289", 'longitude':"11.0330801" , 'adresse':"Forum 1, Lachsgasse"})
 static_data.append({ 'latitude':"50.9744646", 'longitude':"11.0330455" , 'adresse':"Hirschlachufer 7, 99084 Erfurt"})
-static_data.append({ 'latitude':"50.970866", 'longitude':"11.018662" , 'adresse':"Bonifaciusstraﬂe 15, 99084 Erfurt"})
+static_data.append({ 'latitude':"50.970866", 'longitude':"11.018662" , 'adresse':"Bonifaciusstra√üe 15, 99084 Erfurt"})
 
 class ParkingLotEF2Json():
     page = ""
@@ -34,7 +34,7 @@ class ParkingLotEF2Json():
         time = str(datetime.datetime.now())
         self.data.append({'date' : time})
         for elem in m:
-            name = re.search(r'"[ A-Za-z0-9‰ˆ¸+-]+"', elem, re.UNICODE).group(0)[1:-1]
+            name = re.search(r'"[ A-Za-z0-9√§√∂√º+-]+"', elem, re.UNICODE).group(0)[1:-1]
             belegt = re.search(r'[\-0-9]+\)', elem).group(0)[0:-1]
             max = re.search(r'von.*,', elem).group(0)[5:-1]
             tmp = { 'name':name, 'belegt':belegt, 'maximal':max }
